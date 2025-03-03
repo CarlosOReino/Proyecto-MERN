@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+.navbar {
+  font-size: 20px;
+}
+.Navbar.Brand{
+  font-size: 10px;
+
+}
+
+.layout {
+  width: 100%;
+  display: grid;
+  grid:
+    "header" auto
+    "main" 1fr
+    "footer" auto
+    / 1fr;
+  gap: 8px;
+}
+
+.header { grid-area: header; }
+.main { grid-area: main; }
+.footer { grid-area: footer; }
