@@ -2,7 +2,7 @@ function Sidebar() {
     return (
       <div className="sidebar">
         <div className="p-4">
-          <h1 className="logo">PULSE</h1>
+          <h1 className="logo">iSONG</h1>
         </div>
         <nav className="sidebar-nav">
           <ul className="nav flex-column">
