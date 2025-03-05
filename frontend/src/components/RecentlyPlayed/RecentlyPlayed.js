@@ -1,4 +1,4 @@
-import AlbumCard from "./AlbumCard"
+import AlbumCard from "../AlbumCard/AlbumCard"
 
 function RecentlyPlayed() {
 const albums = [
@@ -28,5 +28,5 @@ const albums = [
   )
 }
 
-export default RecentlyPlayed
+export default RecentlyPlayed;
 

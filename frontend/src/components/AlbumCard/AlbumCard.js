@@ -17,4 +17,4 @@ function AlbumCard({ title, artist, coverUrl }) {
     )
   }
   
-  export default AlbumCard
+  export default AlbumCard;

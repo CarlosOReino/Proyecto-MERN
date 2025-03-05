@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Sidebar() {
     return (
       <div className="sidebar">
@@ -7,11 +9,23 @@ function Sidebar() {
         <nav className="sidebar-nav">
           <ul className="nav flex-column">
             <li className="nav-item">
-              <a href="#" className="nav-link">
+              <Link to="/" className="nav-link">
                 <i className="bi bi-house-door"></i>
                 <span>Home</span>
-              </a>
+              </Link>
             </li>
+            <li className="nav-item">
+            <Link to="/login" className="nav-link">
+              <i className="bi bi-box-arrow-in-right"></i>
+              <span>Login</span>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/profile" className="nav-link">
+              <i className="bi bi-person-circle"></i>
+              <span>Profile</span>
+            </Link>
+          </li>
             <li className="nav-item">
               <a href="#" className="nav-link">
                 <i className="bi bi-search"></i>
@@ -60,6 +74,6 @@ function Sidebar() {
     )
   }
   
-  export default Sidebar
+  export default Sidebar;
   
   
