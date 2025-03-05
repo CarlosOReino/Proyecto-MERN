@@ -1,0 +1,51 @@
+src/
+├── components/
+│   ├── AlbumCard/
+│   │   ├── AlbumCard.js
+│   │   └── AlbumCard.css
+│   ├── FeaturedSection/
+│   │   ├── FeaturedSection.js
+│   │   └── FeaturedSection.css
+│   ├── ForYou/
+│   │   ├── ForYou.js
+│   │   └── ForYou.css
+│   ├── MusicPlayer/
+│   │   ├── MusicPlayer.js
+│   │   └── MusicPlayer.css
+│   ├── RecentlyPlayed/
+│   │   ├── RecentlyPlayed.js
+│   │   └── RecentlyPlayed.css
+│   ├── Sidebar/
+│   │   ├── Sidebar.js
+│   │   └── Sidebar.css
+│   ├── TopCharts/
+│   │   ├── TopCharts.js
+│   │   └── TopCharts.css
+│   
+├── pages/
+│   ├── Home/
+│   │   ├── Home.js
+│   │   └── Home.css
+│   ├── Login/
+│   │   ├── Login.js
+│   │   └── Login.css
+│   ├── Profile/
+│   │   ├── Profile.js
+│   │   └── Profile.css
+│   
+├── hooks/
+│   ├── useAuth.js
+│   ├── usePlayer.js
+│   
+├── context/
+│   ├── AuthContext.js
+│   ├── PlayerContext.js
+│
+├── services/
+│   ├── authService.js
+│   ├── musicService.js
+│ 
+├── App.js
+├── index.js
+└── styles/
+    ├── global.css
