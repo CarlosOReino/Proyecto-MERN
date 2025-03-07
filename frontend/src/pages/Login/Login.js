@@ -1,19 +1,22 @@
+// frontend/src/pages/Login/Login.js
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { login } from '../../services/authService';
 import './Login.css';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Aquí iría la lógica para manejar el inicio de sesión
-    console.log('Username:', username);
-    console.log('Password:', password);
-    // Redirigir al usuario a la página de inicio después del login
-    navigate('/');
+    try {
+      const token = await login(email, password);
+      console.log('Token received:', token);
+      // Redirigir al usuario a la página de inicio
+      window.location.href = '/';
+    } catch (error) {
+      console.error('Login failed:', error);
+    }
   };
 
   return (
@@ -22,12 +25,12 @@ const Login = () => {
         <h2>Login</h2>
         <form onSubmit={handleLogin}>
           <div className="form-group">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="email">Email</label>
             <input
-              type="text"
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>

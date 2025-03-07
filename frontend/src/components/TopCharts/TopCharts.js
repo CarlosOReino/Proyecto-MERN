@@ -1,39 +1,47 @@
-function TopCharts() {
-    const tracks = [
-      { position: 1, title: "Let's Stay Together", artist: "Al Green", duration: "3:18", coverUrl: "../images/grey-bg.webp" },
-      { position: 2, title: "Ain't No Sunshine", artist: "Bill Withers", duration: "2:04", coverUrl: "../images/grey-bg.webp" },
-      { position: 3, title: "Sexual Healing", artist: "Marvin Gaye", duration: "4:00", coverUrl: "../images/grey-bg.webp" },
-      { position: 4, title: "Superstition", artist: "Stevie Wonder", duration: "4:26", coverUrl: "../images/grey-bg.webp" },
-      { position: 5, title: "I Heard It Through the Grapevine", artist: "Marvin Gaye", duration: "3:16", coverUrl: "../images/grey-bg.webp" },
-    ]
-  
-    return (
-      <section className="top-charts-section mb-5">
-        <div className="d-flex justify-content-between align-items-center mb-3">
-          <h2 className="section-title">Top Charts</h2>
-          <a href="#" className="see-all-link">
-            See All <i className="bi bi-chevron-right"></i>
-          </a>
-        </div>
-        <div className="chart-container">
-          {tracks.map((track, index) => (
-            <div key={index} className="chart-item">
-              <div className="chart-position">{track.position}</div>
-              <div className="chart-cover">
-                <img src={track.coverUrl || "../images/grey-bg.webp"} alt={track.title} className="img-fluid rounded" />
-              </div>
-              <div className="chart-info">
-                <h6 className="chart-title">{track.title}</h6>
-                <p className="chart-artist">{track.artist}</p>
-              </div>
-              <div className="chart-duration">{track.duration}</div>
+import React, { useEffect, useState } from 'react';
+import { fetchSongs } from '../../services/musicService';
+
+const TopCharts = () => {
+  const [songs, setSongs] = useState([]);
+
+  useEffect(() => {
+    const loadSongs = async () => {
+      try {
+        const songsData = await fetchSongs();
+        setSongs(songsData);
+      } catch (error) {
+        console.error('Failed to load songs:', error);
+      }
+    };
+
+    loadSongs();
+  }, []);
+
+  return (
+    <section className="top-charts-section mb-5">
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <h2 className="section-title">Top Charts</h2>
+        <a href="#" className="see-all-link">
+          See All <i className="bi bi-chevron-right"></i>
+        </a>
+      </div>
+      <div className="chart-container">
+        {songs.map((song, index) => (
+          <div key={song._id} className="chart-item">
+            <div className="chart-position">{index + 1}</div>
+            <div className="chart-cover">
+              <img src={song.coverUrl} alt={song.title} className="img-fluid rounded" />
             </div>
-          ))}
-        </div>
-      </section>
-    )
-  }
-  
-  export default TopCharts;
-  
-  
+            <div className="chart-info">
+              <h6 className="chart-title">{song.title}</h6>
+              <p className="chart-artist">{song.artist}</p>
+            </div>
+            <div className="chart-duration">{song.duration}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default TopCharts;

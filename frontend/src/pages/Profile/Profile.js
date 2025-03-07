@@ -4,7 +4,7 @@ import './Profile.css';
 const Profile = () => {
   const [name, setName] = useState('Samuel Salter');
   const [email, setEmail] = useState('samuel@example.com');
-  const [profileImage, setProfileImage] = useState('../images/grey-bg.webp');
+  const [profileImage, setProfileImage] = useState('./images/grey-bg.webp');
 
   const handleSave = (e) => {
     e.preventDefault();
