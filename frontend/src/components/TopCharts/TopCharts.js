@@ -34,6 +34,6 @@ function TopCharts() {
     )
   }
   
-  export default TopCharts
+  export default TopCharts;
   
   

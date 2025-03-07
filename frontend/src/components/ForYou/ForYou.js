@@ -1,4 +1,4 @@
-import AlbumCard from "./AlbumCard"
+import AlbumCard from "../AlbumCard/AlbumCard"
 
 function ForYou() {
   const albums = [
@@ -28,4 +28,4 @@ function ForYou() {
   )
 }
 
-export default ForYou
+export default ForYou;
