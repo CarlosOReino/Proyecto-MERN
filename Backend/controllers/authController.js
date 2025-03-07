@@ -1,7 +1,8 @@
 import User from '../models/user.js';
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
+// Controlador para el registro
 export const register = (req, res) => {
   const { username, email, password } = req.body;
 
@@ -20,6 +21,7 @@ export const register = (req, res) => {
   });
 };
 
+// Controlador para el login
 export const login = (req, res) => {
   const { email, password } = req.body;
 

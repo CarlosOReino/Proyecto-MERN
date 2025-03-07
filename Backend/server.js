@@ -1,9 +1,10 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import authRoutes from './routes/authRoutes.js';
 import musicRoutes from './routes/musicRoutes.js';
+import connectDB from './config/db.js';
+import connection from './config/mysql.js';
 
 
 dotenv.config();
@@ -16,12 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 // Conexión a MongoDB
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log('MongoDB connected'))
-.catch(err => console.log(err));
+connectDB();
 
 // Rutas
 app.use('/api/auth', authRoutes);
