@@ -1,4 +1,3 @@
-// frontend/src/pages/Login/Login.js
 import React, { useState } from 'react';
 import { login } from '../../services/authService';
 import './Login.css';
@@ -12,8 +11,12 @@ const Login = () => {
     try {
       const token = await login(email, password);
       console.log('Token received:', token);
-      // Redirigir al usuario a la página de inicio
-      window.location.href = '/';
+
+      // Almacenar el token en localStorage
+      localStorage.setItem('token', token);
+
+      // Redirigir al usuario a la página de perfil
+      window.location.href = '/profile';
     } catch (error) {
       console.error('Login failed:', error);
     }
