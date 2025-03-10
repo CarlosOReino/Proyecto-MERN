@@ -5,6 +5,7 @@ import authRoutes from './routes/authRoutes.js';
 import musicRoutes from './routes/musicRoutes.js';
 import connectDB from './config/db.js';
 import connection from './config/mysql.js';
+import profileRoutes from './routes/profileRoutes.js';
 
 
 dotenv.config();
@@ -22,6 +23,7 @@ connectDB();
 // Rutas
 app.use('/api/auth', authRoutes);
 app.use('/api/music', musicRoutes);
+app.use('/api/profile', profileRoutes);
 
 // Iniciar servidor
 app.listen(PORT, () => {

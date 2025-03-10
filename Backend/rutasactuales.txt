@@ -1,0 +1,10 @@
+Backend Actual
+Rutas:
+
+POST /api/auth/register: Para registrar un nuevo usuario.
+
+POST /api/auth/login: Para iniciar sesión.
+
+GET /api/music/: Para obtener todas las canciones.
+
+POST /api/music/: Para crear una nueva canción.
