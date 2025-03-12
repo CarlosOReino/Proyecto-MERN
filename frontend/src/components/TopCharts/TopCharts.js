@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchSongs } from '../../services/musicService';
+import { fetchSongs } from '../../services/musicService.js';
 
 const TopCharts = () => {
   const [songs, setSongs] = useState([]);

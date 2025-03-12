@@ -11,26 +11,33 @@ const Profile = () => {
     const fetchProfile = async () => {
       try {
         const token = localStorage.getItem('token');
+        if (!token) {
+          setMessage('Token not found, please log in again');
+          return;
+        }
+  
         const response = await fetch('http://localhost:5000/api/profile', {
           headers: {
             'Authorization': `Bearer ${token}`,
           },
         });
-
+  
         if (!response.ok) {
           throw new Error('Failed to fetch profile');
         }
-
+  
         const data = await response.json();
         setName(data.name);
         setEmail(data.email);
       } catch (error) {
         console.error('Error fetching profile:', error);
+        setMessage('Error fetching profile. Please try again.');
       }
     };
-
+  
     fetchProfile();
   }, []);
+  
 
   const handleSave = async (e) => {
     e.preventDefault();
