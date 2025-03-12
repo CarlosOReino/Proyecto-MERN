@@ -11,6 +11,15 @@ class User {
     const query = 'SELECT * FROM users WHERE email = ?';
     connection.query(query, [email], callback);
   }
+
+    // Método para buscar un usuario por ID
+    static findById(id, callback) {
+      const query = 'SELECT * FROM users WHERE id = ?';
+      connection.query(query, [id], callback);
+    }
+  
 }
+
+
 
 export default User;
