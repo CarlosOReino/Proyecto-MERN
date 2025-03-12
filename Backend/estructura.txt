@@ -1,0 +1,24 @@
+backend/
+├── controllers/
+│   ├── authController.js
+│   ├── musicController.js
+│   └── ...otros controladores
+├── models/
+│   ├── user.js
+│   ├── album.js
+│   └── playlist.js
+        song.js
+├── routes/
+│   ├── authRoutes.js
+│   ├── musicRoutes.js
+│   └── profileRoutes.js
+├── middleware/
+│   ├── authMiddleware.js
+│   └── 
+├── config/
+│   ├── db.js
+│   └── mysql.js
+├── utils/
+│   ├── 
+│   └── 
+└── server.js

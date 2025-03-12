@@ -1,13 +1,22 @@
-import AlbumCard from "../AlbumCard/AlbumCard"
+import React, { useEffect, useState } from 'react';
+import { fetchSongs } from '../../services/musicService';
+import AlbumCard from '../AlbumCard/AlbumCard';
 
-function ForYou() {
-  const albums = [
-    { title: "The Blueprint", artist: "Jay-Z", coverUrl: "../images/grey-bg.webp" },
-    { title: "To Pimp a Butterfly", artist: "Kendrick Lamar", coverUrl: "../images/grey-bg.webp" },
-    { title: "Illmatic", artist: "Nas", coverUrl: "../images/grey-bg.webp" },
-    { title: "The Chronic", artist: "Dr. Dre", coverUrl: "../images/grey-bg.webp" },
-    { title: "Good Kid, M.A.A.D City", artist: "Kendrick Lamar", coverUrl: "../images/grey-bg.webp" },
-  ]
+const ForYou = () => {
+  const [songs, setSongs] = useState([]);
+
+  useEffect(() => {
+    const loadSongs = async () => {
+      try {
+        const songsData = await fetchSongs();
+        setSongs(songsData);
+      } catch (error) {
+        console.error('Failed to load songs:', error);
+      }
+    };
+
+    loadSongs();
+  }, []);
 
   return (
     <section className="for-you-section mb-5">
@@ -18,14 +27,14 @@ function ForYou() {
         </a>
       </div>
       <div className="row">
-        {albums.map((album, index) => (
-          <div key={index} className="col-6 col-md-4 col-lg-2-4 mb-4">
-            <AlbumCard {...album} />
+        {songs.map((song) => (
+          <div key={song._id} className="col-6 col-md-4 col-lg-2-4 mb-4">
+            <AlbumCard {...song} />
           </div>
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default ForYou;

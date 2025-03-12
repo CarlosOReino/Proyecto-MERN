@@ -34,11 +34,9 @@ src/
 │   │   └── Profile.css
 │   
 ├── hooks/
-│   ├── useAuth.js
 │   ├── usePlayer.js
 │   
 ├── context/
-│   ├── AuthContext.js
 │   ├── PlayerContext.js
 │
 ├── services/

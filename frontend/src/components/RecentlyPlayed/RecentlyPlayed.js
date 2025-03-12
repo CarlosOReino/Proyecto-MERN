@@ -1,13 +1,22 @@
-import AlbumCard from "../AlbumCard/AlbumCard"
+import React, { useEffect, useState } from 'react';
+import { fetchSongs } from '../../services/musicService';
+import AlbumCard from '../AlbumCard/AlbumCard';
 
-function RecentlyPlayed() {
-const albums = [
-  { title: "Salsa Explosion", artist: "Celia Cruz", coverUrl: "../images/grey-bg.webp" },
-  { title: "Salsa Magic", artist: "Héctor Lavoe", coverUrl: "../images/grey-bg.webp" },
-  { title: "Salsa Legends", artist: "Willie Colón", coverUrl: "../images/grey-bg.webp" },
-  { title: "Salsa Heat", artist: "Rubén Blades", coverUrl: "../images/grey-bg.webp" },
-  { title: "Salsa Classics", artist: "Marc Anthony", coverUrl: "../images/grey-bg.webp" },
-]
+const RecentlyPlayed = () => {
+  const [songs, setSongs] = useState([]);
+
+  useEffect(() => {
+    const loadSongs = async () => {
+      try {
+        const songsData = await fetchSongs();
+        setSongs(songsData);
+      } catch (error) {
+        console.error('Failed to load songs:', error);
+      }
+    };
+
+    loadSongs();
+  }, []);
 
   return (
     <section className="recently-played-section mb-5">
@@ -18,15 +27,14 @@ const albums = [
         </a>
       </div>
       <div className="row">
-        {albums.map((album, index) => (
-          <div key={index} className="col-6 col-md-4 col-lg-2-4 mb-4">
-            <AlbumCard {...album} />
+        {songs.map((song) => (
+          <div key={song._id} className="col-6 col-md-4 col-lg-2-4 mb-4">
+            <AlbumCard {...song} />
           </div>
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default RecentlyPlayed;
-
