@@ -22,6 +22,7 @@ const router = express.Router();
  */
 router.get('/', authMiddleware, getProfile);
 
+
 /**
  * @swagger
  * /api/profile:

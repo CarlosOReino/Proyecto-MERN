@@ -30,6 +30,7 @@ const router = express.Router();
  */
 router.post('/register', register);
 
+
 /**
  * @swagger
  * /api/auth/login:
