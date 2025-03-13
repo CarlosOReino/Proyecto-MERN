@@ -10,7 +10,7 @@ const FeaturedSection = () => {
       try {
         const songsData = await fetchSongs();
         if (songsData.length > 0) {
-          setFeaturedArtist(songsData[2].artist); 
+          setFeaturedArtist(songsData[0].artist); 
         }
       } catch (error) {
         console.error('Failed to load featured artist:', error);

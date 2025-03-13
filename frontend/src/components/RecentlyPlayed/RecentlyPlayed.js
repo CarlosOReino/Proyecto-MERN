@@ -29,7 +29,7 @@ const RecentlyPlayed = () => {
       <div className="row">
         {songs.map((song) => (
           <div key={song._id} className="col-6 col-md-4 col-lg-2-4 mb-4">
-            <AlbumCard {...song} />
+            <AlbumCard {...song} duration={song.duration} />
           </div>
         ))}
       </div>
