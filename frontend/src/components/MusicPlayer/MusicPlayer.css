@@ -1,0 +1,82 @@
+.music-player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background-color: rgba(18, 18, 18, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--border-color);
+  z-index: 1000;
+  padding: 1rem 0;
+}
+
+.album-thumbnail {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+}
+
+.track-info h6 {
+  font-size: 0.875rem;
+}
+
+.track-info small {
+  font-size: 0.75rem;
+}
+
+.player-controls .btn-link {
+  color: var(--text-muted);
+  padding: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+.player-controls .btn-link:hover {
+  color: var(--text-primary);
+}
+
+.btn-play-pause {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1rem;
+  border: none;
+  transition: transform 0.2s ease;
+}
+
+.btn-play-pause:hover {
+  transform: scale(1.05);
+}
+
+.btn-play-pause i {
+  font-size: 1.25rem;
+}
+
+.progress-container {
+  width: 100%;
+}
+
+.time-elapsed,
+.time-total {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  width: 40px;
+}
+
+.progress {
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.progress-bar {
+  background: var(--primary-gradient);
+}
+
+.volume-slider {
+  width: 100px;
+}

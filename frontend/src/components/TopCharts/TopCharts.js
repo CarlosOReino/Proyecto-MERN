@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchSongs } from '../../services/musicService.js';
+import AlbumCard from '../AlbumCard/AlbumCard';
 
 const TopCharts = () => {
   const [songs, setSongs] = useState([]);
@@ -30,7 +31,7 @@ const TopCharts = () => {
           <div key={song._id} className="chart-item">
             <div className="chart-position">{index + 1}</div>
             <div className="chart-cover">
-              <img src={song.coverUrl} alt={song.title} className="img-fluid rounded" />
+              <AlbumCard {...song} />
             </div>
             <div className="chart-info">
               <h6 className="chart-title">{song.title}</h6>

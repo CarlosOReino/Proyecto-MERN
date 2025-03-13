@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { login } from '../../services/authService.js';
 import './Login.css';
-import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // Añade este hook
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -17,8 +17,7 @@ const Login = () => {
       // Almacenar el token en localStorage
       localStorage.setItem('token', token);
 
-      // Redirigir al usuario a la página de perfil
-      navigate('/profile'); // Usa navigate en lugar de window.location.href
+      navigate('/profile'); 
     } catch (error) {
       console.error('Login failed:', error);
     }
