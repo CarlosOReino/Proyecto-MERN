@@ -1,12 +1,11 @@
-import express from 'express';
-import dotenv from 'dotenv';
 import cors from 'cors';
+import dotenv from 'dotenv';
+import express from 'express';
+import connectDB from './config/db.js';
+import swaggerRoutes from './config/swagger.js';
 import authRoutes from './routes/authRoutes.js';
 import musicRoutes from './routes/musicRoutes.js';
-import connectDB from './config/db.js';
-import connection from './config/mysql.js';
 import profileRoutes from './routes/profileRoutes.js';
-
 
 dotenv.config();
 
@@ -24,6 +23,7 @@ connectDB();
 app.use('/api/auth', authRoutes);
 app.use('/api/music', musicRoutes);
 app.use('/api/profile', profileRoutes);
+app.use(swaggerRoutes); // Añadir esta línea para integrar Swagger
 
 // Iniciar servidor
 app.listen(PORT, () => {
